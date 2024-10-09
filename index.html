@@ -25,16 +25,6 @@
             const result = await response.json();
             alert(result.result === 'success' ? 'Order submitted successfully!' : `Error: ${result.message}`);
         }
-        document.getElementById('fetchE1Value').addEventListener('click',function() {
-            fetch('https://script.google.com/macros/s/AKfycbwiZmG3OFmvB0usH9ABbeJ2BlS0wP2Fo04lfB21M9Cr4YaJvR0nNpXDFq1srSyJgK59/exec')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementId('e1Value').textContent = 'Value in E1: ${data.value}';
-            })
-            .catcg(error => {
-                console.error('Error:', error);
-            });
-        })
     </script>
 </head>
 <body>
@@ -54,5 +44,18 @@
     <button id="fetchE1Value">Get Value from E1</button>
     <p id="e1Value"></p>
     
+    <script>
+        document.getElementById('fetchE1Value').addEventListener('click', function() {
+            fetch('https://script.google.com/macros/s/AKfycbwiZmG3OFmvB0usH9ABbeJ2BlS0wP2Fo04lfB21M9Cr4YaJvR0nNpXDFq1srSyJgK59/exec')  // Replace with your Web App URL
+            .then(response => response.json())
+            .then(data => {
+                // Display the retrieved E1 value
+                document.getElementById('e1Value').textContent = `Value in E1: ${data.value}`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
 </html>
