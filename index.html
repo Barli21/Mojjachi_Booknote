@@ -25,6 +25,16 @@
             const result = await response.json();
             alert(result.result === 'success' ? 'Order submitted successfully!' : `Error: ${result.message}`);
         }
+        document.getElementById('fetchE1Value').addEventListener('click',function() {
+            fetch('https://script.google.com/macros/s/AKfycbwiZmG3OFmvB0usH9ABbeJ2BlS0wP2Fo04lfB21M9Cr4YaJvR0nNpXDFq1srSyJgK59/exec')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementId('e1Value').textContent = 'Value in E1: ${data.value}';
+            })
+            .catcg(error => {
+                console.error('Error:', error);
+            });
+        })
     </script>
 </head>
 <body>
@@ -40,5 +50,8 @@
         <input type="tel" id="phone" required><br>
         <button type="submit">Submit Order</button>
     </form>
+    <h1>Retrive Value from the spreadsheet</h1>
+    <p id="e1Value"></p>
+    
 </body>
 </html>
