@@ -47,7 +47,7 @@
     <script>
         document.getElementById('fetchE1Value').addEventListener('click', function() {
             fetch('https://script.google.com/macros/s/AKfycbwiZmG3OFmvB0usH9ABbeJ2BlS0wP2Fo04lfB21M9Cr4YaJvR0nNpXDFq1srSyJgK59/exec', {
-                method: 'POST',
+                method: 'GET',
                 mode: 'no-cors')  // Replace with your Web App URL
             .then(response => response.json())
             .then(data => {
